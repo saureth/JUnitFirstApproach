@@ -30,30 +30,27 @@ public class Calcular implements Ctrl.CalcularIF{
     }
     @Override
     public float Divide(float one, float two) {
-        resultF=Float.parseFloat((one/two)+"");
+        if(validateDivide(two)){
+            resultF=(one/two);            
+        }
         return resultF;
     }  
     
     public float getFirstValueF() {
         return firstValueF;
     }
-
     public void setFirstValueF(float firstValueF) {
         this.firstValueF = firstValueF;
     }
-
     public float getSecondValueF() {
         return secondValueF;
     }
-
     public void setSecondValueF(float secondValueF) {
         this.secondValueF = secondValueF;
     }
-
     public float getResultF() {
         return resultF;
-    }
-
+    }    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -62,7 +59,6 @@ public class Calcular implements Ctrl.CalcularIF{
         hash = 19 * hash + Float.floatToIntBits(this.resultF);
         return hash;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -83,10 +79,16 @@ public class Calcular implements Ctrl.CalcularIF{
         }
         return true;
     }
-
     @Override
     public String toString() {
         return " "+getResultF();
     }
     
+    public boolean validateDivide(float secNum){
+        boolean notZero= false;
+        if (this.getSecondValueF()== secNum&& secNum!=0) {
+            notZero=true;
+        }
+        return notZero;
+    }
 }
