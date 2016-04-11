@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class CalculadoraView extends javax.swing.JFrame {
     public float first,second, result;
-    private Model.Calcular control;
+    private CalcularIF control;
     
     public CalculadoraView() {
         initComponents();
