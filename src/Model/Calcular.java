@@ -30,7 +30,8 @@ public class Calcular implements Ctrl.CalcularIF{
     }
     @Override
     public float Divide(float one, float two) {
-        if(validateDivide(two)){
+        System.out.println(two);
+        if(validateDivide(two)){            
             resultF=(one/two);            
         }
         return resultF;
@@ -86,8 +87,9 @@ public class Calcular implements Ctrl.CalcularIF{
     
     public boolean validateDivide(float secNum){
         boolean notZero= false;
+        System.out.println("Dentro :" + this.getSecondValueF());
         if (this.getSecondValueF()== secNum&& secNum!=0) {
-            notZero=true;
+            notZero=true;            
         }
         return notZero;
     }

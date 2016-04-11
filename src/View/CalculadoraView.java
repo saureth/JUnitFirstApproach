@@ -5,18 +5,14 @@ import Model.Calcular;
 import javax.swing.JOptionPane;
 
 public class CalculadoraView extends javax.swing.JFrame {
-    public float first,second, result;
+
+    public float first, second, result;
     private CalcularIF control;
-    
+
     public CalculadoraView() {
         initComponents();
-        this.first = 0.0f;
-        this.second = 0.0f;
-        this.result=0.0f;
-        control=new Calcular();
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +29,7 @@ public class CalculadoraView extends javax.swing.JFrame {
         multplyButton = new javax.swing.JButton();
         divideButton = new javax.swing.JButton();
         ResultLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        AnswerToFirstValue = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,10 +67,10 @@ public class CalculadoraView extends javax.swing.JFrame {
 
         ResultLabel.setText("Result: ");
 
-        jButton1.setText("Answer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AnswerToFirstValue.setText("Answer");
+        AnswerToFirstValue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AnswerToFirstValueActionPerformed(evt);
             }
         });
 
@@ -104,7 +100,7 @@ public class CalculadoraView extends javax.swing.JFrame {
                                 .addComponent(ResultLabel)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AnswerToFirstValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(divideButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -123,7 +119,7 @@ public class CalculadoraView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ResultLabel)
-                    .addComponent(jButton1))
+                    .addComponent(AnswerToFirstValue))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -131,78 +127,85 @@ public class CalculadoraView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        try{
-            first=Float.parseFloat(FirstValue.getText());
-            second=Float.parseFloat(SecondValue.getText());
-            result= control.Add(first, second);
+        try {
+            first = Float.parseFloat(FirstValue.getText());
+            second = Float.parseFloat(SecondValue.getText());
+            control= new Calcular(first, second);
+            result = control.Add(first, second);
             ResultLabel.setText("Result: " + control.toString());
-        }
-        catch(NumberFormatException x){
+            FirstValue.setText("");
+            SecondValue.setText("");
+        } catch (NumberFormatException x) {
             JOptionPane.showMessageDialog(null, "Lo que escribió no son números", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hay errores, revise sus números", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void substractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_substractButtonActionPerformed
-        try{
-            first=Float.parseFloat(FirstValue.getText());
-            second=Float.parseFloat(SecondValue.getText());
-            result= control.Substract(first, second);
+        try {
+            first = Float.parseFloat(FirstValue.getText());
+            second = Float.parseFloat(SecondValue.getText());
+            control= new Calcular(first, second);
+            result = control.Substract(first, second);
             ResultLabel.setText("Result: " + control.toString());
-        }
-        catch(NumberFormatException x){
+            FirstValue.setText("");
+            SecondValue.setText("");
+        } catch (NumberFormatException x) {
             JOptionPane.showMessageDialog(null, "Lo que escribió no son números", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hay errores, revise sus números", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_substractButtonActionPerformed
 
     private void multplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multplyButtonActionPerformed
-        try{
-            first=Float.parseFloat(FirstValue.getText());
-            second=Float.parseFloat(SecondValue.getText());
-            result= control.Multiply(first, second);
-            ResultLabel.setText("Result: "+ control.toString());
-        }
-        catch(NumberFormatException x){
+        try {
+            first = Float.parseFloat(FirstValue.getText());
+            second = Float.parseFloat(SecondValue.getText());
+            control= new Calcular(first, second);
+            result = control.Multiply(first, second);
+            ResultLabel.setText("Result: " + control.toString());
+            FirstValue.setText("");
+            SecondValue.setText("");
+        } catch (NumberFormatException x) {
             JOptionPane.showMessageDialog(null, "Lo que escribió no son números", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hay errores, revise sus números", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_multplyButtonActionPerformed
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
-        try{
-            first=Float.parseFloat(FirstValue.getText());
-            second=Float.parseFloat(SecondValue.getText());
-            if (SecondValue.getText().equalsIgnoreCase("0")||second==0) {
+        try {
+            first = Float.parseFloat(FirstValue.getText());
+            second = Float.parseFloat(SecondValue.getText());
+            control= new Calcular(first, second);
+            System.out.println(second+"  " + SecondValue.getText());
+            if (SecondValue.getText().equalsIgnoreCase("0") || second == 0) {
                 JOptionPane.showMessageDialog(null, "No divida por cero", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                result = control.Divide(first, second);
+                ResultLabel.setText(""+result);
             }
-            else{
-            result= control.Divide(first, second);
-            ResultLabel.setText("Result: " + control.toString());
-            }
-        }        
-        catch(NumberFormatException x){
+        } catch (NumberFormatException x) {
             JOptionPane.showMessageDialog(null, "Lo que escribió no son números", "Error", JOptionPane.ERROR_MESSAGE);
-        }        
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, " " + e.getMessage(), "Error desconocido", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_divideButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    //the idea is to put the answer as the first value of the calculator
+    private void AnswerToFirstValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnswerToFirstValueActionPerformed
+        if (ResultLabel.getText().equals("Result: ")) {
+            FirstValue.setText("" + 0.0f);
+            SecondValue.setText("" + 0.0f);
+        } else {
+            FirstValue.setText("" + result);
+        }
+    }//GEN-LAST:event_AnswerToFirstValueActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -234,14 +237,14 @@ public class CalculadoraView extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AnswerToFirstValue;
     private javax.swing.JTextField FirstValue;
     private javax.swing.JLabel ResultLabel;
     private javax.swing.JTextField SecondValue;
     private javax.swing.JButton addButton;
     private javax.swing.JButton divideButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton multplyButton;
     private javax.swing.JButton substractButton;
     // End of variables declaration//GEN-END:variables

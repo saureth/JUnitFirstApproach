@@ -76,10 +76,10 @@ public class CalcularTest {
     @Test
     public void testDivide() {
         System.out.println("Divide");
-        float one = 0.0F;
-        float two = 1.0F;
+        float one = 112.0F;
+        float two = 4.0F;
         Calcular instance = new Calcular();
-        float expResult = 0.0F;
+        float expResult = 28.0F;
         float result = instance.Divide(one, two);
         assertEquals(expResult, result, 0.0f);
     }
@@ -90,10 +90,10 @@ public class CalcularTest {
     @Test
     public void testValidateDivide() {
         System.out.println("DivideByZero");
-        float two = 0.0f;
+        float two = 4.0f;
         Calcular instance = new Calcular();
         boolean notANumber= instance.validateDivide(two);
-        assertFalse(notANumber);
+        assertTrue(notANumber);
     }
 
     /**
