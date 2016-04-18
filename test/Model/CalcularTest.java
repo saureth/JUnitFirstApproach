@@ -33,7 +33,6 @@ public class CalcularTest {
      */
     @Test
     public void testAdd() {
-        System.out.println("Add");
         float one = 1.0F;
         float two = 0.0F;
         Calcular instance = new Calcular();
@@ -47,7 +46,6 @@ public class CalcularTest {
      */
     @Test
     public void testSubstract() {
-        System.out.println("Substract");
         float one = 3.0F;
         float two = 2.0F;
         Calcular instance = new Calcular();
@@ -61,7 +59,6 @@ public class CalcularTest {
      */
     @Test
     public void testMultiply() {
-        System.out.println("Multiply");
         float one = 0.0F;
         float two = 4.0F;
         Calcular instance = new Calcular();
@@ -75,10 +72,9 @@ public class CalcularTest {
      */
     @Test
     public void testDivide() {
-        System.out.println("Divide");
         float one = 112.0F;
         float two = 4.0F;
-        Calcular instance = new Calcular();
+        Calcular instance = new Calcular(one, two);
         float expResult = 28.0F;
         float result = instance.Divide(one, two);
         assertEquals(expResult, result, 0.0f);
@@ -91,7 +87,7 @@ public class CalcularTest {
     public void testValidateDivide() {
         System.out.println("DivideByZero");
         float two = 4.0f;
-        Calcular instance = new Calcular();
+        Calcular instance = new Calcular(0.0f,two);
         boolean notANumber= instance.validateDivide(two);
         assertTrue(notANumber);
     }
@@ -101,7 +97,6 @@ public class CalcularTest {
      */
     @Test
     public void testGetFirstValueF() {
-        System.out.println("getFirstValueF");
         Calcular instance = new Calcular();
         float expResult = 0.0F;
         float result = instance.getFirstValueF();
@@ -113,7 +108,6 @@ public class CalcularTest {
      */
     @Test
     public void testSetFirstValueF() {
-        System.out.println("setFirstValueF");
         float firstValueF = 0.0F;
         Calcular instance = new Calcular();
         instance.setFirstValueF(firstValueF);
@@ -124,7 +118,6 @@ public class CalcularTest {
      */
     @Test
     public void testGetSecondValueF() {
-        System.out.println("getSecondValueF");
         Calcular instance = new Calcular();
         float expResult = 0.0F;
         float result = instance.getSecondValueF();
@@ -136,7 +129,6 @@ public class CalcularTest {
      */
     @Test
     public void testSetSecondValueF() {
-        System.out.println("setSecondValueF");
         float secondValueF = 0.0F;
         Calcular instance = new Calcular();
         instance.setSecondValueF(secondValueF);
@@ -147,7 +139,6 @@ public class CalcularTest {
      */
     @Test
     public void testGetResultF() {
-        System.out.println("getResultF");
         Calcular instance = new Calcular();
         float expResult = 0.0F;
         float result = instance.getResultF();
@@ -159,7 +150,6 @@ public class CalcularTest {
      */
     @Test
     public void testEquals() {
-        System.out.println("equals");
         Object obj = null;
         Calcular instance = new Calcular();
         boolean expResult = false;
