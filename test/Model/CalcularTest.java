@@ -1,3 +1,4 @@
+
 package Model;
 
 import org.junit.After;
@@ -29,8 +30,8 @@ public class CalcularTest {
     }
 
     /**
-     * Test of Add method, of class Calcular.
-     */
+     * Test of Add method, of class Calcular.*/
+     
     @Test
     public void testAdd() {
         float one = 1.0F;

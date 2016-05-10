@@ -5,7 +5,6 @@ import Model.Calcular;
 import javax.swing.JOptionPane;
 
 public class CalculadoraView extends javax.swing.JFrame {
-
     public float first, second, result;
     private CalcularIF control;
 
@@ -186,6 +185,8 @@ public class CalculadoraView extends javax.swing.JFrame {
                 result = control.Divide(first, second);
                 ResultLabel.setText(""+result);
             }
+            FirstValue.setText("");
+            SecondValue.setText("");
         } catch (NumberFormatException x) {
             JOptionPane.showMessageDialog(null, "Lo que escribió no son números", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
